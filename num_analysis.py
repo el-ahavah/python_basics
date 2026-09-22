@@ -1,53 +1,53 @@
+# # method 1:
+# numbers = input("please input you list of numbers: ")
+# numbers = [int(number) for number in numbers.split()]
 
-numbers = input("please input you list of numbers: ")
-numbers = [int(number) for number in numbers.split()]
+# start = 0
+# counting = 0
+# minimum = numbers[0]
+# maximum = numbers[0]
+# even = []
+# odd = []
+# positive = []
+# negative = []
 
-start = 0
-counting = 0
-minimum = numbers[0]
-maximum = numbers[0]
-even = []
-odd = []
-positive = []
-negative = []
-
-for number in numbers:
+# for number in numbers:
     
-    if minimum > number:
-        minimum = number
+#     if minimum > number:
+#         minimum = number
 
-    if maximum < number:
-        maximum = number
+#     if maximum < number:
+#         maximum = number
 
-    if number % 2 == 0:
-        even.append(number)
-    else:
-        odd.append(number)
+#     if number % 2 == 0:
+#         even.append(number)
+#     else:
+#         odd.append(number)
 
-    if number > 0:
-        positive.append(number)
-    elif number < 0:
-        negative.append(number)
+#     if number > 0:
+#         positive.append(number)
+#     elif number < 0:
+#         negative.append(number)
 
-    total = start + number
-    start = total
-    counting += 1
+#     total = start + number
+#     start = total
+#     counting += 1
 
-average = total/counting
-print(total)
-print(average)
-print(minimum)
-print(maximum)
-print(even)
-print(odd)
-print(positive)
-print(negative)
+# average = total/counting
+# print(total)
+# print(average)
+# print(minimum)
+# print(maximum)
+# print(even)
+# print(odd)
+# print(positive)
+# print(negative)
 
 #-------------------------------------------------------------------
+# method 2 - splitted into functions:
 
 def get_numbers():
-    """Prompt the user and return a list of integers."""
-    numbers = input("please input you list of numbers: ")
+    numbers = input("please input your list of numbers: ")
     return [int(number) for number in numbers.split()]
 
 
@@ -109,14 +109,14 @@ def main():
     positive, negative = split_positive_negative(numbers)
     total, average = total_and_average(numbers)
 
-    print(total)
-    print(average)
-    print(minimum)
-    print(maximum)
-    print(even)
-    print(odd)
-    print(positive)
-    print(negative)
+    print("total:", total)
+    print("average:", average)
+    print("minimum:", minimum)
+    print("maximum:", maximum)
+    print("even:", even)
+    print("odd:", odd)
+    print("positive:", positive)
+    print("negative:", negative)
 
 
 main()
