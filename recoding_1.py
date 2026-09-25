@@ -97,3 +97,46 @@ assert changed["tags"] == ["python", "testing"]
 changed["tags"].append("linux")
 
 assert original["tags"] == ["python"]
+
+#------------------------------------------------------------
+
+# Question 4 Validate an import
+
+# You receive a list of strings representing whole-unit amounts. Return a dictionary with total and rejected. Use Python int(raw) conversion: surrounding whitespace is accepted. A converted amount of zero or more is valid. Negative amounts and strings that cannot be converted must each increase rejected by one. An empty list returns both values as zero. Do not change the input.
+
+# def summarise_amounts(raw_values):
+#     total = 0
+#     for raw in raw_values:
+#         try:
+#             total += int(raw)
+#         except:
+#             pass
+#     return {"total": total, "rejected": 0}
+    
+# Required example: ["10", " 5 ", "bad", "-3", "0", ""] must return {"total": 15, "rejected": 3}. Inputs are always strings; no other type validation is required.
+
+# Q4 Part A
+# Identify three defects or risks in the supplied function. Explain why a bare except can hide an unrelated failure. [6 marks]
+
+# zero is not considered a valid integer
+# second rejected is not defined
+# thirdly rejected is not incremented
+# a bare except can hide failure because it does not consider other edge cases, it is very narrow. For instance it does not take -3 and 0 as numbers
+
+# Q4 Part B
+# Rewrite the function to meet every rule. Catch only the expected conversion exception. [11 marks]
+
+# def summarise_amounts(raw_values):
+#     total = 0
+# rejected = 0
+#     for raw in raw_values:
+#         try:
+#             total += int(raw)
+#         except:
+#             pass
+#     return {"total": total, "rejected": 0}
+    
+# Q4 Part C
+# Write four executable assertions covering the required mixed example, empty input, all rejected input, and a valid zero. State why checking only total could miss a bug. [8 marks]
+
+#solution
