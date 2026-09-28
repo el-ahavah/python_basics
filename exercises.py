@@ -100,3 +100,32 @@ for char in store:
         most_frequent = char
 
 print(most_frequent)
+#-----------------------------------------------
+""" remove duplicate character """
+text = "banana"
+
+result = ""
+
+for char in text:
+    if char not in result:
+        result += char
+
+print(result)
+#-----------------------------------------------
+""" count words """
+sentence = "Python is easy to learn"
+splitter = sentence.split()
+count = 0
+for word in splitter:
+    count += 1
+
+print(count)
+#-----------------------------------------------
+""" find the longest word """
+sentence = "Python programming is interesting"
+splitter = sentence.split()
+longest = ""
+for word in splitter:
+    if len(word) > len(longest):
+        longest = word
+print(longest)
