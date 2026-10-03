@@ -281,3 +281,29 @@ def lowest_student():
     print(f"Age: {lowest['age']}")
     print(f"Scores: {lowest['scores']}")
     print(f"Average: {average:.1f}")
+
+
+# ------------------------------------------
+# 8. DISPLAY ALL STUDENTS
+# ------------------------------------------
+
+def display_students():
+    print("\n===== STUDENTS =====")
+
+    if not students:
+        print("No students available.")
+        return
+
+    for number, student in enumerate(students, start=1):
+
+        average = calculate_average(student["scores"])
+
+        scores = ", ".join(
+            str(score) for score in student["scores"]
+        )
+
+        print(f"\n{number}. {student['name']}")
+        print(f"   Age: {student['age']}")
+        print(f"   Scores: {scores}")
+        print(f"   Average: {average:.1f}")
+
