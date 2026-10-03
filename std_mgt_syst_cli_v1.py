@@ -115,3 +115,93 @@ def remove_student():
         print("Student not found.")
 
 
+# ------------------------------------------
+# 3. SEARCH STUDENT
+# ------------------------------------------
+
+def search_student():
+    print("\n===== SEARCH STUDENT =====")
+
+    name = input("Enter name: ").strip()
+
+    student = find_student(name)
+
+    if student:
+        average = calculate_average(student["scores"])
+
+        print("\nStudent found.")
+        print(f"Name: {student['name']}")
+        print(f"Age: {student['age']}")
+        print(f"Scores: {student['scores']}")
+        print(f"Average: {average:.1f}")
+
+    else:
+        print("Student not found.")
+
+
+# ------------------------------------------
+# 4. UPDATE STUDENT
+# ------------------------------------------
+
+def update_student():
+    print("\n===== UPDATE STUDENT =====")
+
+    name = input("Enter student name: ").strip()
+
+    student = find_student(name)
+
+    if not student:
+        print("Student not found.")
+        return
+
+    print("\nWhat do you want to update?")
+    print("1. Name")
+    print("2. Age")
+    print("3. Scores")
+
+    choice = input("Choose an option: ").strip()
+
+    if choice == "1":
+
+        new_name = input("Enter new name: ").strip()
+
+        if not new_name:
+            print("Name cannot be empty.")
+            return
+
+        existing_student = find_student(new_name)
+
+        if existing_student and existing_student is not student:
+            print("A student with that name already exists.")
+            return
+
+        student["name"] = new_name
+
+        print("Name updated successfully.")
+
+    elif choice == "2":
+
+        while True:
+            try:
+                new_age = int(input("Enter new age: "))
+
+                if new_age <= 0:
+                    print("Age must be greater than 0.")
+                    continue
+
+                student["age"] = new_age
+                print("Age updated successfully.")
+                break
+
+            except ValueError:
+                print("Please enter a valid age.")
+
+    elif choice == "3":
+
+        student["scores"] = get_scores()
+
+        print("Scores updated successfully.")
+
+    else:
+        print("Invalid option.")
+
