@@ -28,3 +28,29 @@ def calculate_average(scores):
     return sum(scores) / len(scores)
 
 
+def get_scores():
+    """Ask the user for comma-separated scores."""
+
+    while True:
+        scores_input = input("Scores (example: 70, 80, 90): ")
+
+        try:
+            scores = [
+                float(score.strip())
+                for score in scores_input.split(",")
+            ]
+
+            if not scores:
+                print("Please enter at least one score.")
+                continue
+
+            if any(score < 0 or score > 100 for score in scores):
+                print("Scores must be between 0 and 100.")
+                continue
+
+            return scores
+
+        except ValueError:
+            print("Invalid scores. Enter numbers separated by commas.")
+
+
