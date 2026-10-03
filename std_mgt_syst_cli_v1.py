@@ -54,3 +54,64 @@ def get_scores():
             print("Invalid scores. Enter numbers separated by commas.")
 
 
+# ------------------------------------------
+# 1. ADD STUDENT
+# ------------------------------------------
+
+def add_student():
+    print("\n===== ADD STUDENT =====")
+
+    name = input("Name: ").strip()
+
+    if not name:
+        print("Name cannot be empty.")
+        return
+
+    if find_student(name):
+        print("A student with that name already exists.")
+        return
+
+    while True:
+        try:
+            age = int(input("Age: "))
+
+            if age <= 0:
+                print("Age must be greater than 0.")
+                continue
+
+            break
+
+        except ValueError:
+            print("Please enter a valid age.")
+
+    scores = get_scores()
+
+    student = {
+        "name": name,
+        "age": age,
+        "scores": scores
+    }
+
+    students.append(student)
+
+    print(f"{name} added successfully.")
+
+
+# ------------------------------------------
+# 2. REMOVE STUDENT
+# ------------------------------------------
+
+def remove_student():
+    print("\n===== REMOVE STUDENT =====")
+
+    name = input("Enter student name: ").strip()
+
+    student = find_student(name)
+
+    if student:
+        students.remove(student)
+        print("Student removed.")
+    else:
+        print("Student not found.")
+
+
