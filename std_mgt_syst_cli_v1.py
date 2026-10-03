@@ -307,3 +307,66 @@ def display_students():
         print(f"   Scores: {scores}")
         print(f"   Average: {average:.1f}")
 
+
+# ------------------------------------------
+# MAIN MENU
+# ------------------------------------------
+
+def main():
+
+    while True:
+
+        print("\n================================")
+        print("   STUDENT MANAGEMENT SYSTEM")
+        print("================================")
+
+        print("1. ADD")
+        print("2. REMOVE")
+        print("3. SEARCH")
+        print("4. UPDATE")
+        print("5. AVERAGE")
+        print("6. HIGHEST")
+        print("7. LOWEST")
+        print("8. DISPLAY")
+        print("9. EXIT")
+
+        choice = input("\nEnter your choice: ").strip()
+
+        if choice == "1":
+            add_student()
+
+        elif choice == "2":
+            remove_student()
+
+        elif choice == "3":
+            search_student()
+
+        elif choice == "4":
+            update_student()
+
+        elif choice == "5":
+            show_average()
+
+        elif choice == "6":
+            highest_student()
+
+        elif choice == "7":
+            lowest_student()
+
+        elif choice == "8":
+            display_students()
+
+        elif choice == "9":
+            print("\nGoodbye!")
+            break
+
+        else:
+            print("Invalid choice. Please choose 1-9.")
+
+
+# ------------------------------------------
+# START PROGRAM
+# ------------------------------------------
+
+if __name__ == "__main__":
+    main()
