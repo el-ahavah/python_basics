@@ -205,3 +205,79 @@ def update_student():
     else:
         print("Invalid option.")
 
+
+# ------------------------------------------
+# 5. CALCULATE AVERAGE
+# ------------------------------------------
+
+def show_average():
+    print("\n===== STUDENT AVERAGE =====")
+
+    name = input("Enter student name: ").strip()
+
+    student = find_student(name)
+
+    if not student:
+        print("Student not found.")
+        return
+
+    average = calculate_average(student["scores"])
+
+    print(f"Scores: {student['scores']}")
+    print(f"Average: {average:.1f}")
+
+
+# ------------------------------------------
+# 6. HIGHEST AVERAGE
+# ------------------------------------------
+
+def highest_student():
+    print("\n===== HIGHEST AVERAGE =====")
+
+    if not students:
+        print("No students available.")
+        return
+
+    highest = students[0]
+
+    for student in students:
+
+        if calculate_average(student["scores"]) > calculate_average(
+            highest["scores"]
+        ):
+            highest = student
+
+    average = calculate_average(highest["scores"])
+
+    print(f"Student: {highest['name']}")
+    print(f"Age: {highest['age']}")
+    print(f"Scores: {highest['scores']}")
+    print(f"Average: {average:.1f}")
+
+
+# ------------------------------------------
+# 7. LOWEST AVERAGE
+# ------------------------------------------
+
+def lowest_student():
+    print("\n===== LOWEST AVERAGE =====")
+
+    if not students:
+        print("No students available.")
+        return
+
+    lowest = students[0]
+
+    for student in students:
+
+        if calculate_average(student["scores"]) < calculate_average(
+            lowest["scores"]
+        ):
+            lowest = student
+
+    average = calculate_average(lowest["scores"])
+
+    print(f"Student: {lowest['name']}")
+    print(f"Age: {lowest['age']}")
+    print(f"Scores: {lowest['scores']}")
+    print(f"Average: {average:.1f}")
