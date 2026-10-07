@@ -1,0 +1,10 @@
+A module is a python file with functions or variables in it, imported by another python file with the "." operator in other to access the contents in the file.
+	- In the case of the dictionary, the key is a string and the syntax is [key]. In the case of the module, the key is an identifier, and the syntax is .key. Other than that, they are nearly the same thing.
+
+Class: A blueprint or template used to define what data an object can have and what actions it can perform. For example, a Person class can define that people have a name and age and can introduce() themselves.
+
+Object: A specific instance created from a class. Each object can have its own data. For example, person1 = Person("John", 20) creates an object called person1 from the Person class.
+
+Method: A function defined inside a class that describes an action or behavior associated with objects of that class. For example, introduce() can be a method of the Person class.
+
+__init__ method: A special method that Python automatically calls when a new object is created. It is commonly used to set up the object's initial attributes, such as its name and age.
