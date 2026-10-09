@@ -20,7 +20,7 @@ class Person:
 person1 = Person("John", 20)          # object
 """
 #-----------------------------------------------------------------
-
+"""
 class Person:
     # This runs whenever we create a new Person object
     def __init__(self, name, age):
@@ -60,3 +60,26 @@ person1.birthday()
 
 # Check the new age
 print(person1.age)
+"""
+#--------------------------------------------------------------------
+
+# inheritance
+class Animal:
+    def speak(self):
+        print("Animals make sounds")
+
+
+class Dog(Animal):
+    pass
+
+
+class Cat(Animal):
+    def speak(self):
+        print("Meow")
+
+
+dog = Dog()
+cat = Cat()
+
+dog.speak()
+cat.speak()

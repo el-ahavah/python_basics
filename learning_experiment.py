@@ -4,17 +4,19 @@ students = [
     {"id": 3, "name": "Peter", "grade": "A"}
 ]
 
+# Set the target ID to search for (this does not exist in the list)
+search_id = 99
+student_found = False
+
 for student in students:
-    if student["id"] == 2:
+    if student["id"] == search_id:
         student["grade"] = "A"
-    
-    if student["id"] == 3:
-        student["grade"] = "B"
+        student_found = True
+        break  # Stop searching once found
 
+# Handle the case where the ID does not exist
+if not student_found:
+    print(f"Error: Student with ID {search_id} does not exist.")
+
+print("\nCurrent students list:")
 print(students)
-
-# 1. Find the student whose ID is 3.
-# 2. Change that student's grade to B.
-# 3. Print the updated list.
-# 4. Confirm that the other students' grades remain unchanged.
-# Additional challenge: What happens if you search for student ID 5, which doesn't exist?
