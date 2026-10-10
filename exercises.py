@@ -186,3 +186,37 @@ result = word_frequency(sentence)
 
 for word, count in result.items():
     print(f"{word}: {count}")
+#-------------------------------------------------------------
+"""Search for a Student by Name"""
+students = [
+    {"name": "Alice", "age": 20, "score": 85},
+    {"name": "Bob", "age": 22, "score": 72},
+    {"name": "Charlie", "age": 19, "score": 91},
+    {"name": "David", "age": 21, "score": 68},
+    {"name": "Esther", "age": 20, "score": 95}
+]
+
+
+def search_student(students, name):
+
+    for student in students:
+
+        if student["name"].lower() == name.lower():
+            return student
+
+    return None
+
+
+search_name = input("Enter student name: ")
+
+result = search_student(students, search_name)
+
+if result:
+
+    print("\nStudent Found!")
+    print("Name:", result["name"])
+    print("Age:", result["age"])
+    print("Score:", result["score"])
+
+else:
+    print("Student not found.")
