@@ -129,3 +129,35 @@ for word in splitter:
     if len(word) > len(longest):
         longest = word
 print(longest)
+#------------------------------------------------------------------
+"""Find the Largest and Smallest Numbers"""
+def find_min_max(numbers):
+
+    if not numbers:
+        return None
+
+    largest = numbers[0]
+    smallest = numbers[0]
+
+    for number in numbers:
+
+        if number > largest:
+            largest = number
+
+        if number < smallest:
+            smallest = number
+
+    return largest, smallest
+
+
+numbers = [15, 3, 27, 8, 42, 11]
+
+result = find_min_max(numbers)
+
+if result is not None:
+    largest, smallest = result
+
+    print("Largest:", largest)
+    print("Smallest:", smallest)
+else:
+    print("The list is empty.")
