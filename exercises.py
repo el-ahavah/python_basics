@@ -269,3 +269,32 @@ print()
 
 print("Most frequent number:", most_frequent)
 print("Frequency:", highest_count)
+#-----------------------------------------------------------
+"""Find the First Non-Repeating Character"""
+def first_unique_character(text):
+
+    frequency = {}
+
+    # Step 1: Count each character
+    for char in text:
+        if char in frequency:
+            frequency[char] += 1
+        else:
+            frequency[char] = 1
+
+    # Step 2: Find the first unique character
+    for char in text:
+        if frequency[char] == 1:
+            return char
+
+    return None
+
+
+word = "aabbcdd"
+
+result = first_unique_character(word)
+
+if result is not None:
+    print("First unique character:", result)
+else:
+    print("No unique character found.")
