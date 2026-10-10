@@ -220,3 +220,52 @@ if result:
 
 else:
     print("Student not found.")
+#---------------------------------------------------------------
+"""Find Duplicate Numbers and Their Frequencies"""
+def analyze_numbers(numbers):
+
+    frequency = {}
+
+    # Count occurrences
+    for number in numbers:
+
+        if number in frequency:
+            frequency[number] += 1
+
+        else:
+            frequency[number] = 1
+
+    # Find duplicates
+    duplicates = {}
+
+    for number, count in frequency.items():
+
+        if count > 1:
+            duplicates[number] = count
+
+    # Find most frequent number
+    most_frequent = None
+    highest_count = 0
+
+    for number, count in frequency.items():
+
+        if count > highest_count:
+            highest_count = count
+            most_frequent = number
+
+    return duplicates, most_frequent, highest_count
+
+
+numbers = [4, 2, 7, 4, 9, 2, 4, 7, 7, 7]
+
+duplicates, most_frequent, highest_count = analyze_numbers(numbers)
+
+print("Duplicate numbers:")
+
+for number, count in duplicates.items():
+    print(f"{number} appears {count} times")
+
+print()
+
+print("Most frequent number:", most_frequent)
+print("Frequency:", highest_count)
