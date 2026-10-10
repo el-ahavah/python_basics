@@ -161,3 +161,28 @@ if result is not None:
     print("Smallest:", smallest)
 else:
     print("The list is empty.")
+#----------------------------------------------------
+"""Count Word Frequencies"""
+def word_frequency(sentence):
+
+    words = sentence.lower().split()
+
+    frequency = {}
+
+    for word in words:
+
+        if word in frequency:
+            frequency[word] += 1
+
+        else:
+            frequency[word] = 1
+
+    return frequency
+
+
+sentence = "python is great and python is powerful"
+
+result = word_frequency(sentence)
+
+for word, count in result.items():
+    print(f"{word}: {count}")
