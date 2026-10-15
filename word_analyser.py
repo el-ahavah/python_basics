@@ -28,3 +28,17 @@ def count_word_frequency(words):
     for word in words:
         frequencies[word] = frequencies.get(word, 0) + 1
     return frequencies
+
+
+def find_most_common_word(frequencies):
+    """Return the most frequent word, or None for an empty dictionary.
+
+    When counts tie, return the first word added to the dictionary.
+    """
+    most_common_word = None
+    highest_count = 0
+    for word, count in frequencies.items():
+        if count > highest_count:
+            most_common_word = word
+            highest_count = count
+    return most_common_word
