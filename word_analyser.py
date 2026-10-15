@@ -54,3 +54,35 @@ def find_longest_word(words):
         if longest_word is None or len(word) > len(longest_word):
             longest_word = word
     return longest_word
+
+
+def main():
+    """Collect one line of text and display its word statistics."""
+    print("WORD ANALYSER")
+    try:
+        text = input("Enter some text: ")
+    except (EOFError, KeyboardInterrupt):
+        print("\nAnalysis cancelled.")
+        return
+
+    words = clean_text(text)
+    if not words:
+        print("No words found. Run again and enter some text.")
+        return
+
+    frequencies = count_word_frequency(words)
+    most_common = find_most_common_word(frequencies)
+    longest = find_longest_word(words)
+
+    print("\nRESULTS")
+    print(f"Total words: {count_words(words)}")
+    print(f"Unique words: {count_unique_words(words)}")
+    print(f"Most common word: {most_common} ({frequencies[most_common]} occurrences)")
+    print(f"Longest word: {longest} ({len(longest)} characters)")
+    print("\nWord frequencies:")
+    for word, count in frequencies.items():
+        print(f"  {word}: {count}")
+
+
+if __name__ == "__main__":
+    main()
