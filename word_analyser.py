@@ -20,3 +20,11 @@ def count_words(words):
 def count_unique_words(words):
     """Return how many different words appear."""
     return len(set(words))
+
+
+def count_word_frequency(words):
+    """Return a dictionary mapping each word to its occurrence count."""
+    frequencies = {}
+    for word in words:
+        frequencies[word] = frequencies.get(word, 0) + 1
+    return frequencies
