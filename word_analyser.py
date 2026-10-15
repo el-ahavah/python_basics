@@ -10,3 +10,8 @@ def clean_text(text):
         else:
             cleaned_text += " "
     return cleaned_text.split()
+
+
+def count_words(words):
+    """Return the number of words, including repeated words."""
+    return len(words)
