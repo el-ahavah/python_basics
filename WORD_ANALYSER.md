@@ -1,20 +1,48 @@
 # Word analyser
 
-A Python practice project with seven functions and no external packages.
-Use Python 3.7 or newer so dictionary order preserves the first word entered.
+This program reads a sentence you type and tells you about its words.
+It shows the total number of words, how many different words you used,
+how often each word appears, the most common word, and the longest word.
 
-## Run it
+## What you need
 
-From this repository's folder:
+You need Python 3.7 or newer installed on your computer and a copy of this
+repository. You do not need to install any extra Python packages.
 
-```bash
-python word_analyser.py
+## How to open and run it in VS Code
+
+1. Open VS Code.
+2. Click **File > Open Folder** and select your **python_basics** folder.
+3. Click **Terminal > New Terminal**. The terminal is the area where you type commands.
+4. If your folder is already connected to this GitHub repository, get the latest files:
+
+   ```bash
+   git pull origin main
+   ```
+
+5. Type this command in the terminal and press **Enter**:
+
+   ```bash
+   python word_analyser.py
+   ```
+
+   If your computer uses `python3` instead, run `python3 word_analyser.py`.
+   On Windows, you can also try `py word_analyser.py`.
+
+## How to use it
+
+1. Wait until you see `Enter some text:`.
+2. Type or paste a sentence on one line.
+3. Press **Enter**.
+4. Read the results shown in the terminal.
+
+For example, type:
+
+```text
+Python is fun and python is useful
 ```
 
-On systems where Python 3 uses `python3`, use that command instead.
-Enter one line of text and press Enter.
-
-For `Python is fun and python is useful`, the results are:
+The program displays:
 
 ```text
 Total words: 7
@@ -29,6 +57,39 @@ Word frequencies:
   and: 1
   useful: 1
 ```
+
+Here is what those results mean:
+
+- **Total words:** all the words you entered, including repeats.
+- **Unique words:** the number of different words you entered.
+- **Most common word:** the word that appears the most. "Occurrences" means how many times it appears.
+- **Longest word:** the word with the most characters.
+- **Word frequencies:** a list showing how many times each word appears.
+
+In this example, `python` and `is` both appear twice. The program picks
+`python` because it appeared first. It also picks `python` over `useful`
+as the longest word because both have six characters and `python` came first.
+
+## How to try another sentence or stop
+
+The program finishes after showing one result. To analyse another sentence,
+run `python word_analyser.py` again.
+
+If you press Enter without typing any words, it asks you to run again and
+enter some text. You can press **Ctrl+C** while it is waiting for input to cancel.
+Your text and results are displayed in the terminal; the program does not save
+them to a file.
+
+## If it does not run
+
+- **"Python was not found" or "command not found":** try `py` on Windows or
+  `python3` on macOS/Linux in place of `python`. If none works, check that
+  Python is installed and available in your terminal.
+- **"Can't open file" or "No such file":** make sure your terminal is inside
+  the folder containing `word_analyser.py`. Opening the correct folder in
+  VS Code before creating the terminal usually resolves this.
+- **No words found:** enter some letters or numbers. Spaces and punctuation
+  on their own do not count as words.
 
 ## The seven functions
 
