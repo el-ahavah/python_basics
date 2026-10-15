@@ -15,3 +15,8 @@ def clean_text(text):
 def count_words(words):
     """Return the number of words, including repeated words."""
     return len(words)
+
+
+def count_unique_words(words):
+    """Return how many different words appear."""
+    return len(set(words))
