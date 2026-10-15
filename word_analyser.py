@@ -42,3 +42,15 @@ def find_most_common_word(frequencies):
             most_common_word = word
             highest_count = count
     return most_common_word
+
+
+def find_longest_word(words):
+    """Return the longest word, or None if there are no words.
+
+    When lengths tie, return the first word in the list.
+    """
+    longest_word = None
+    for word in words:
+        if longest_word is None or len(word) > len(longest_word):
+            longest_word = word
+    return longest_word
