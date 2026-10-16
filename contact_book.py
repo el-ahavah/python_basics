@@ -32,3 +32,15 @@ def view_contacts(contacts):
     for number, contact in enumerate(contacts, start=1):
         print(f"{number}. {contact['name']} | {contact['phone']} | "
               f"{contact['email'] or 'No email'}")
+
+
+def search_contacts(contacts, query):
+    """Return partial name or phone matches, ignoring letter case."""
+    query = query.strip().lower()
+    if not query:
+        raise ValueError("Enter a name or phone number to search.")
+    matches = []
+    for contact in contacts:
+        if query in contact["name"].lower() or query in contact["phone"]:
+            matches.append(contact)
+    return matches
