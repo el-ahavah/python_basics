@@ -92,3 +92,92 @@ def save_contacts(contacts, filename=CONTACTS_FILE):
     with open(filename, "w", encoding="utf-8") as file:
         json.dump(contacts, file, indent=4, ensure_ascii=False)
         file.write("\n")
+
+
+def main():
+    """Run the menu and save each successful change before accepting it."""
+    try:
+        contacts = load_contacts()
+    except (OSError, ValueError) as error:
+        print(f"Cannot load contacts: {error}")
+        print("Check contacts.json before restarting. It has not been changed.")
+        return
+
+    while True:
+        try:
+            print("\nCONTACT BOOK")
+            print("1. Add contact\n2. View contacts\n3. Search contacts")
+            print("4. Edit contact\n5. Delete contact\n6. Exit")
+            choice = input("Choose an option: ").strip()
+            # Work on a copy so a failed save leaves the current list unchanged.
+            updated_contacts = contacts.copy()
+
+            if choice == "1":
+                name = input("Name: ")
+                phone = input("Phone: ")
+                email = input("Email (optional): ")
+                add_contact(updated_contacts, name, phone, email)
+                message = "Contact added."
+            elif choice == "2":
+                view_contacts(contacts)
+                continue
+            elif choice == "3":
+                matches = search_contacts(contacts, input("Name or phone: "))
+                view_contacts(matches)
+                continue
+            elif choice in ("4", "5"):
+                view_contacts(contacts)
+                if not contacts:
+                    continue
+                selection = input("Contact number (Enter to cancel): ").strip()
+                if not selection:
+                    continue
+                try:
+                    number = int(selection)
+                except ValueError:
+                    raise ValueError("Enter a whole-number contact number.") from None
+                if number < 1 or number > len(contacts):
+                    raise ValueError("Choose a contact number from the list.")
+                contact = contacts[number - 1]
+                if choice == "4":
+                    print("Press Enter to keep a value; type - to clear email.")
+                    name = input(f"Name [{contact['name']}]: ").strip()
+                    phone = input(f"Phone [{contact['phone']}]: ").strip()
+                    email = input(f"Email [{contact['email']}]: ").strip()
+                    if email == "-":
+                        email = ""
+                    elif not email:
+                        email = contact["email"]
+                    edit_contact(updated_contacts, number,
+                                 name or contact["name"],
+                                 phone or contact["phone"], email)
+                    message = "Contact updated."
+                else:
+                    answer = input(f"Delete {contact['name']}? (yes/no): ")
+                    if answer.strip().lower() != "yes":
+                        print("Deletion cancelled.")
+                        continue
+                    delete_contact(updated_contacts, number)
+                    message = "Contact deleted."
+            elif choice == "6":
+                print("Goodbye!")
+                return
+            else:
+                print("Please choose an option from 1 to 6.")
+                continue
+
+            save_contacts(updated_contacts)
+            contacts = updated_contacts
+            print(message)
+        except ValueError as error:
+            print(error)
+        except OSError as error:
+            print(f"Could not save contacts: {error}")
+            print("Your change was not applied. Please try again.")
+        except (EOFError, KeyboardInterrupt):
+            print("\nGoodbye!")
+            return
+
+
+if __name__ == "__main__":
+    main()
