@@ -44,3 +44,17 @@ def search_contacts(contacts, query):
         if query in contact["name"].lower() or query in contact["phone"]:
             matches.append(contact)
     return matches
+
+
+def edit_contact(contacts, number, name, phone, email=""):
+    """Replace details using the contact number displayed by view_contacts."""
+    if number < 1 or number > len(contacts):
+        raise ValueError("Choose a contact number from the list.")
+    name = name.strip()
+    phone = phone.strip()
+    email = email.strip()
+    if not name or not phone:
+        raise ValueError("Name and phone number cannot be empty.")
+    contact = {"name": name, "phone": phone, "email": email}
+    contacts[number - 1] = contact
+    return contact
