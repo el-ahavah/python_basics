@@ -22,3 +22,13 @@ def add_contact(contacts, name, phone, email=""):
     contact = {"name": name, "phone": phone, "email": email}
     contacts.append(contact)
     return contact
+
+
+def view_contacts(contacts):
+    """Display numbered contacts, or a message when the list is empty."""
+    if not contacts:
+        print("No contacts found.")
+        return
+    for number, contact in enumerate(contacts, start=1):
+        print(f"{number}. {contact['name']} | {contact['phone']} | "
+              f"{contact['email'] or 'No email'}")
