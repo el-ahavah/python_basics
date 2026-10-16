@@ -3,6 +3,21 @@
 Run with: python contact_book.py
 Contacts are dictionaries stored in a list. Phone numbers stay as strings
 so leading zeros and a country-code prefix are preserved.
+
+The eight functions handle adding, viewing, searching, editing, deleting,
+loading, saving, and the menu. No extra packages are needed.
+
+Names and phone numbers are required; email is optional. Duplicate names
+and phone numbers are allowed (for example, a shared family phone).
+Search accepts part of a name or the phone exactly as typed.
+Edit and delete use numbers from the full contact list. Press Enter at the
+number prompt to cancel. During editing, Enter keeps a value and - clears
+the email. Deletion requires typing yes.
+
+Every change is saved to contacts.json beside this script. A temporary
+file is written first, then replaces the old file only after writing succeeds.
+If saved data is unreadable, the program stops without overwriting it.
+Keep your personal contacts.json on your computer when sharing this code.
 """
 
 import json
@@ -88,10 +103,17 @@ def load_contacts(filename=CONTACTS_FILE):
 
 
 def save_contacts(contacts, filename=CONTACTS_FILE):
-    """Save the contact list as readable JSON."""
-    with open(filename, "w", encoding="utf-8") as file:
-        json.dump(contacts, file, indent=4, ensure_ascii=False)
-        file.write("\n")
+    """Write JSON to a temporary file, then replace the saved contact book."""
+    filename = Path(filename)
+    temporary_file = filename.with_name(filename.name + ".tmp")
+    try:
+        with open(temporary_file, "w", encoding="utf-8") as file:
+            json.dump(contacts, file, indent=4, ensure_ascii=False)
+            file.write("\n")
+        temporary_file.replace(filename)
+    finally:
+        if temporary_file.exists():
+            temporary_file.unlink()
 
 
 def main():
