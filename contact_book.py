@@ -10,3 +10,15 @@ from pathlib import Path
 
 
 CONTACTS_FILE = Path(__file__).resolve().with_name("contacts.json")
+
+
+def add_contact(contacts, name, phone, email=""):
+    """Add a contact with a required name and phone; email is optional."""
+    name = name.strip()
+    phone = phone.strip()
+    email = email.strip()
+    if not name or not phone:
+        raise ValueError("Name and phone number cannot be empty.")
+    contact = {"name": name, "phone": phone, "email": email}
+    contacts.append(contact)
+    return contact
