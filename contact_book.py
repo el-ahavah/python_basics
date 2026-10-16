@@ -58,3 +58,10 @@ def edit_contact(contacts, number, name, phone, email=""):
     contact = {"name": name, "phone": phone, "email": email}
     contacts[number - 1] = contact
     return contact
+
+
+def delete_contact(contacts, number):
+    """Remove and return the contact with the displayed number."""
+    if number < 1 or number > len(contacts):
+        raise ValueError("Choose a contact number from the list.")
+    return contacts.pop(number - 1)
