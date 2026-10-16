@@ -1,25 +1,3 @@
-"""A beginner-friendly command-line contact book.
-
-Run with: python contact_book.py
-Contacts are dictionaries stored in a list. Phone numbers stay as strings
-so leading zeros and a country-code prefix are preserved.
-
-The eight functions handle adding, viewing, searching, editing, deleting,
-loading, saving, and the menu. No extra packages are needed.
-
-Names and phone numbers are required; email is optional. Duplicate names
-and phone numbers are allowed (for example, a shared family phone).
-Search accepts part of a name or the phone exactly as typed.
-Edit and delete use numbers from the full contact list. Press Enter at the
-number prompt to cancel. During editing, Enter keeps a value and - clears
-the email. Deletion requires typing yes.
-
-Every change is saved to contacts.json beside this script. A temporary
-file is written first, then replaces the old file only after writing succeeds.
-If saved data is unreadable, the program stops without overwriting it.
-Keep your personal contacts.json on your computer when sharing this code.
-"""
-
 import json
 from pathlib import Path
 
