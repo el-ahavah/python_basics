@@ -65,3 +65,30 @@ def delete_contact(contacts, number):
     if number < 1 or number > len(contacts):
         raise ValueError("Choose a contact number from the list.")
     return contacts.pop(number - 1)
+
+
+def load_contacts(filename=CONTACTS_FILE):
+    """Load contacts from JSON; a missing file means a new contact book."""
+    try:
+        with open(filename, "r", encoding="utf-8") as file:
+            contacts = json.load(file)
+    except FileNotFoundError:
+        return []
+    if not isinstance(contacts, list):
+        raise ValueError("The contacts file must contain a list.")
+    for contact in contacts:
+        if not isinstance(contact, dict):
+            raise ValueError("Each saved contact must be a dictionary.")
+        for field in ("name", "phone", "email"):
+            if field not in contact or not isinstance(contact[field], str):
+                raise ValueError("Each contact needs name, phone and email strings.")
+        if not contact["name"].strip() or not contact["phone"].strip():
+            raise ValueError("Saved names and phone numbers cannot be empty.")
+    return contacts
+
+
+def save_contacts(contacts, filename=CONTACTS_FILE):
+    """Save the contact list as readable JSON."""
+    with open(filename, "w", encoding="utf-8") as file:
+        json.dump(contacts, file, indent=4, ensure_ascii=False)
+        file.write("\n")
