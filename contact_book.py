@@ -58,16 +58,16 @@ def search_contacts(contacts, query):
     return matches
 
 
-def edit_contact(contacts, number, name, phone, email=""):
+def edit_contact(contacts, number, name, phone_number, email=""):
     """Replace details using the contact number displayed by view_contacts."""
     if number < 1 or number > len(contacts):
         raise ValueError("Choose a contact number from the list.")
     name = name.strip()
-    phone = phone.strip()
+    phone_number = phone_number.strip()
     email = email.strip()
-    if not name or not phone:
+    if not name or not phone_number:
         raise ValueError("Name and phone number cannot be empty.")
-    contact = {"name": name, "phone": phone, "email": email}
+    contact = {"name": name, "phone": phone_number, "email": email}
     contacts[number - 1] = contact
     return contact
 
