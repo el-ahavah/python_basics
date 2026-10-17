@@ -121,9 +121,14 @@ def main():
     """Run the menu and save each successful change before accepting it."""
     try:
         contacts = load_contacts()
-    except (OSError, ValueError) as error:
-        print(f"Cannot load contacts: {error}")
-        print("Check contacts.json before restarting. It has not been changed.")
+    except OSError:
+        print("\nYour saved contacts could not be opened.")
+        print("Check that you have permission to open the saved contacts file, then try again.")
+        print("Your saved contacts have not been changed.")
+        return
+    except ValueError:
+        print("\nThe saved contacts file could not be read because its contents are damaged or incomplete.")
+        print("Your file has not been changed. Restore a backup or ask someone to help repair it.")
         return
 
     print("\nWelcome to your Contact Book!")
@@ -222,7 +227,7 @@ def main():
                     delete_contact(updated_contacts, number)
                     message = f"Removed {contact['name']} from your contact book."
             elif choice == "6":
-                print("Goodbye!")
+                print("Your saved contacts will be here next time. Goodbye!")
                 return
             else:
                 print("That option is not on the menu. Type a number from 1 to 6.")
@@ -233,11 +238,12 @@ def main():
             print(message)
         except ValueError as error:
             print(error)
-        except OSError as error:
-            print(f"Could not save contacts: {error}")
-            print("Your change was not applied. Please try again.")
+        except OSError:
+            print("\nWe could not save this change, so it has not been applied.")
+            print("Check that you have free storage space and permission to save files here.")
+            print("Your earlier saved contacts are still available. Try again when ready.")
         except (EOFError, KeyboardInterrupt):
-            print("\nGoodbye!")
+            print("\nClosing the contact book. Only completed, saved changes have been kept.")
             return
 
 
