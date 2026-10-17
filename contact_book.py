@@ -159,8 +159,23 @@ def main():
                 view_contacts(contacts)
                 continue
             elif choice == "3":
-                matches = search_contacts(contacts, input("Name or phone: "))
-                view_contacts(matches)
+                if not contacts:
+                    view_contacts(contacts)
+                    continue
+                print("\nFIND A CONTACT")
+                print("Type all or part of a name or phone number.")
+                print("For phone numbers, use the same spacing as the saved number.")
+                query = input("Search for (press Enter to return to the menu): ").strip()
+                if not query:
+                    print("Search cancelled. Returning to the main menu.")
+                    continue
+                matches = search_contacts(contacts, query)
+                if matches:
+                    print("\nSearch results for:", query)
+                    view_contacts(matches)
+                    print("To change or remove a contact, choose 4 or 5 from the main menu.")
+                else:
+                    print("No contacts matched your search. Try another name or number.")
                 continue
             elif choice in ("4", "5"):
                 view_contacts(contacts)
