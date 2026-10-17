@@ -31,19 +31,23 @@ def add_contact(contacts, name, phone_number, email=""):
 def view_contacts(contacts):
     """Display contacts using a simple loop and a counter."""
     if not contacts:
-        print("No contacts found.")
+        print("\nThere are no contacts to show yet.")
+        print("Choose 1 from the main menu to add your first contact.")
         return
 
+    print("\nCONTACT LIST")
+    print("Number of contacts shown:", len(contacts))
     number = 1
 
     for contact in contacts:
-        print("Contact:", number)
-        print("Name:", contact["name"])
-        print("Phone:", contact["phone"])
-        print("Email:", contact["email"] or "No email")
-        print()
-
+        print("-" * 44)
+        print("Contact number:", number)
+        print("Name:          ", contact["name"])
+        print("Phone number:  ", contact["phone"])
+        print("Email address: ", contact["email"] or "Not provided")
         number += 1
+
+    print("-" * 44)
 
 
 def search_contacts(contacts, query):
