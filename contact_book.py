@@ -65,7 +65,7 @@ def search_contacts(contacts, query):
 def edit_contact(contacts, number, name, phone_number, email=""):
     """Replace details using the contact number displayed by view_contacts."""
     if number < 1 or number > len(contacts):
-        raise ValueError("Choose a contact number from the list.")
+        raise ValueError("Please choose one of the contact numbers shown in the list.")
     name = name.strip()
     phone_number = phone_number.strip()
     email = email.strip()
@@ -79,7 +79,7 @@ def edit_contact(contacts, number, name, phone_number, email=""):
 def delete_contact(contacts, number):
     """Remove and return the contact with the displayed number."""
     if number < 1 or number > len(contacts):
-        raise ValueError("Choose a contact number from the list.")
+        raise ValueError("Please choose one of the contact numbers shown in the list.")
     return contacts.pop(number - 1)
 
 
@@ -181,21 +181,27 @@ def main():
                 view_contacts(contacts)
                 if not contacts:
                     continue
-                selection = input("Contact number (Enter to cancel): ").strip()
+                print("Use the contact number shown above, not the person's phone number.")
+                selection = input("Contact number (press Enter to return to the menu): ").strip()
                 if not selection:
+                    print("No changes made. Returning to the main menu.")
                     continue
                 try:
                     number = int(selection)
                 except ValueError:
-                    raise ValueError("Enter a whole-number contact number.") from None
+                    raise ValueError("Type the contact number as digits, for example 1 or 2.") from None
                 if number < 1 or number > len(contacts):
-                    raise ValueError("Choose a contact number from the list.")
+                    raise ValueError("Please choose one of the contact numbers shown in the list.")
                 contact = contacts[number - 1]
                 if choice == "4":
-                    print("Press Enter to keep a value; type - to clear email.")
-                    name = input(f"Name [{contact['name']}]: ").strip()
-                    phone_number = input(f"Phone [{contact['phone']}]: ").strip()
-                    email = input(f"Email [{contact['email']}]: ").strip()
+                    print("\nCHANGE CONTACT DETAILS")
+                    print("You are changing:", contact["name"])
+                    print("The current details appear in brackets.")
+                    print("Press Enter without typing to keep a detail.")
+                    print("To remove the email address, type just - and press Enter.")
+                    name = input(f"New name [{contact['name']}]: ").strip()
+                    phone_number = input(f"New phone number [{contact['phone']}]: ").strip()
+                    email = input(f"New email address [{contact['email'] or 'Not provided'}]: ").strip()
                     if email == "-":
                         email = ""
                     elif not email:
@@ -203,7 +209,7 @@ def main():
                     edit_contact(updated_contacts, number,
                                  name or contact["name"],
                                  phone_number or contact["phone"], email)
-                    message = "Contact updated."
+                    message = f"Saved! The details for {updated_contacts[number - 1]['name']} have been updated."
                 else:
                     answer = input(f"Delete {contact['name']}? (yes/no): ")
                     if answer.strip().lower() != "yes":
