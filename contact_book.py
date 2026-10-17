@@ -211,12 +211,16 @@ def main():
                                  phone_number or contact["phone"], email)
                     message = f"Saved! The details for {updated_contacts[number - 1]['name']} have been updated."
                 else:
-                    answer = input(f"Delete {contact['name']}? (yes/no): ")
+                    print("\nREMOVE A CONTACT")
+                    print("Name:", contact["name"])
+                    print("Phone number:", contact["phone"])
+                    print("This will remove the contact from your saved contact book.")
+                    answer = input("Type yes to remove this contact, or press Enter to keep it: ")
                     if answer.strip().lower() != "yes":
-                        print("Deletion cancelled.")
+                        print("Contact kept. Nothing was removed.")
                         continue
                     delete_contact(updated_contacts, number)
-                    message = "Contact deleted."
+                    message = f"Removed {contact['name']} from your contact book."
             elif choice == "6":
                 print("Goodbye!")
                 return
