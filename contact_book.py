@@ -122,12 +122,23 @@ def main():
         print("Check contacts.json before restarting. It has not been changed.")
         return
 
+    print("\nWelcome to your Contact Book!")
+    print("Keep the names, phone numbers and email addresses of people you know.")
+    print("Your contacts are saved automatically after each change.")
+
     while True:
         try:
-            print("\nCONTACT BOOK")
-            print("1. Add contact\n2. View contacts\n3. Search contacts")
-            print("4. Edit contact\n5. Delete contact\n6. Exit")
-            choice = input("Choose an option: ").strip()
+            print("\n" + "=" * 44)
+            print("CONTACT BOOK - MAIN MENU")
+            print("=" * 44)
+            print("1. Add a new contact")
+            print("2. Show all contacts")
+            print("3. Find a contact")
+            print("4. Change a contact's details")
+            print("5. Remove a contact")
+            print("6. Close the contact book")
+            print()
+            choice = input("Type a number from 1 to 6, then press Enter: ").strip()
             # Work on a copy so a failed save leaves the current list unchanged.
             updated_contacts = contacts.copy()
 
@@ -182,7 +193,7 @@ def main():
                 print("Goodbye!")
                 return
             else:
-                print("Please choose an option from 1 to 6.")
+                print("That option is not on the menu. Type a number from 1 to 6.")
                 continue
 
             save_contacts(updated_contacts)
