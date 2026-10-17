@@ -133,9 +133,9 @@ def main():
 
             if choice == "1":
                 name = input("Name: ")
-                phone = input("Phone: ")
+                phone_number = input("Phone: ")
                 email = input("Email (optional): ")
-                add_contact(updated_contacts, name, phone, email)
+                add_contact(updated_contacts, name, phone_number, email)
                 message = "Contact added."
             elif choice == "2":
                 view_contacts(contacts)
@@ -161,7 +161,7 @@ def main():
                 if choice == "4":
                     print("Press Enter to keep a value; type - to clear email.")
                     name = input(f"Name [{contact['name']}]: ").strip()
-                    phone = input(f"Phone [{contact['phone']}]: ").strip()
+                    phone_number = input(f"Phone [{contact['phone']}]: ").strip()
                     email = input(f"Email [{contact['email']}]: ").strip()
                     if email == "-":
                         email = ""
@@ -169,7 +169,7 @@ def main():
                         email = contact["email"]
                     edit_contact(updated_contacts, number,
                                  name or contact["name"],
-                                 phone or contact["phone"], email)
+                                 phone_number or contact["phone"], email)
                     message = "Contact updated."
                 else:
                     answer = input(f"Delete {contact['name']}? (yes/no): ")
