@@ -17,14 +17,33 @@ def add_contact(contacts, name, phone_number, email=""):
     return contact
 
 
+# Previous version, kept for comparison:
+# def view_contacts(contacts):
+#     """Display numbered contacts, or a message when the list is empty."""
+#     if not contacts:
+#         print("No contacts found.")
+#         return
+#     for number, contact in enumerate(contacts, start=1):
+#         print(f"{number}. {contact['name']} | {contact['phone']} | "
+#               f"{contact['email'] or 'No email'}")
+
+
 def view_contacts(contacts):
-    """Display numbered contacts, or a message when the list is empty."""
+    """Display contacts using a simple loop and a counter."""
     if not contacts:
         print("No contacts found.")
         return
-    for number, contact in enumerate(contacts, start=1):
-        print(f"{number}. {contact['name']} | {contact['phone']} | "
-              f"{contact['email'] or 'No email'}")
+
+    number = 1
+
+    for contact in contacts:
+        print("Contact:", number)
+        print("Name:", contact["name"])
+        print("Phone:", contact["phone"])
+        print("Email:", contact["email"] or "No email")
+        print()
+
+        number += 1
 
 
 def search_contacts(contacts, query):
