@@ -11,7 +11,7 @@ def add_contact(contacts, name, phone_number, email=""):
     phone_number = phone_number.strip()
     email = email.strip()
     if not name or not phone_number:
-        raise ValueError("Name and phone number cannot be empty.")
+        raise ValueError("Please enter both a name and a phone number. Nothing was changed.")
     contact = {"name": name, "phone": phone_number, "email": email}
     contacts.append(contact)
     return contact
@@ -70,7 +70,7 @@ def edit_contact(contacts, number, name, phone_number, email=""):
     phone_number = phone_number.strip()
     email = email.strip()
     if not name or not phone_number:
-        raise ValueError("Name and phone number cannot be empty.")
+        raise ValueError("Please enter both a name and a phone number. Nothing was changed.")
     contact = {"name": name, "phone": phone_number, "email": email}
     contacts[number - 1] = contact
     return contact
@@ -147,11 +147,14 @@ def main():
             updated_contacts = contacts.copy()
 
             if choice == "1":
-                name = input("Name: ")
-                phone_number = input("Phone: ")
-                email = input("Email (optional): ")
+                print("\nADD A NEW CONTACT")
+                print("A name and phone number are required.")
+                print("You can leave the email address blank.")
+                name = input("Person's name: ")
+                phone_number = input("Phone number (include any starting zeros or +): ")
+                email = input("Email address (press Enter to skip): ")
                 add_contact(updated_contacts, name, phone_number, email)
-                message = "Contact added."
+                message = f"Saved! {name.strip()} has been added to your contact book."
             elif choice == "2":
                 view_contacts(contacts)
                 continue
