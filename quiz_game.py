@@ -172,3 +172,31 @@ def play_again():
         if choice in ("no", "n"):
             return False
         print("Please type yes to play again or no to finish.")
+
+
+def main():
+    """Run the quiz, reset the score each round, and handle leaving."""
+    try:
+        player_name = welcome_player()
+        while True:
+            category = choose_category()
+            questions = get_questions(category)
+            score = 0
+            print(f"\nYou chose {category}.")
+
+            for question_number, question in enumerate(questions, start=1):
+                answer = ask_question(question, question_number, len(questions))
+                if check_answer(question, answer):
+                    score += 1
+                print(f"Current score: {score} out of {question_number}")
+
+            show_results(player_name, score, len(questions))
+            if not play_again():
+                print(f"Thanks for playing, {player_name}! Goodbye.")
+                break
+    except (KeyboardInterrupt, EOFError):
+        print("\nThanks for playing BrainQuest! Goodbye.")
+
+
+if __name__ == "__main__":
+    main()
