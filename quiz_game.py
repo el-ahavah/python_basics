@@ -161,3 +161,14 @@ def show_results(player_name, score, total_questions):
         print("Great job! Keep practising.")
     else:
         print("Keep learning! Every round is another chance to improve.")
+
+
+def play_again():
+    """Return True to play another round, or False to finish."""
+    while True:
+        choice = input("\nWould you like to play again? (yes/no): ").strip().lower()
+        if choice in ("yes", "y"):
+            return True
+        if choice in ("no", "n"):
+            return False
+        print("Please type yes to play again or no to finish.")
