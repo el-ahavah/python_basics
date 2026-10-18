@@ -131,3 +131,15 @@ def ask_question(question, question_number, total_questions):
         if answer in question["options"]:
             return answer
         print("Please type A, B, C, or D. Lowercase letters work too.")
+
+
+def check_answer(question, answer):
+    """Give feedback and return True if the answer is correct."""
+    correct_answer = question["answer"]
+    if answer.strip().upper() == correct_answer:
+        print("Correct! You earned 1 point.")
+        return True
+
+    correct_option = question["options"][correct_answer]
+    print(f"Not quite. The correct answer is {correct_answer}. {correct_option}.")
+    return False
