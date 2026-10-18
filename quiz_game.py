@@ -117,3 +117,17 @@ def get_questions(category):
         ],
     }
     return questions[category]
+
+
+def ask_question(question, question_number, total_questions):
+    """Show a question and return a valid uppercase answer letter."""
+    print(f"\nQuestion {question_number} of {total_questions}")
+    print(question["question"])
+    for letter, option in question["options"].items():
+        print(f"{letter}. {option}")
+
+    while True:
+        answer = input("Your answer (A, B, C, or D): ").strip().upper()
+        if answer in question["options"]:
+            return answer
+        print("Please type A, B, C, or D. Lowercase letters work too.")
