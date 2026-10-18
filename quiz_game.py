@@ -143,3 +143,21 @@ def check_answer(question, answer):
     correct_option = question["options"][correct_answer]
     print(f"Not quite. The correct answer is {correct_answer}. {correct_option}.")
     return False
+
+
+def show_results(player_name, score, total_questions):
+    """Display the player's score, percentage, and encouragement."""
+    print(f"\nYour results, {player_name}")
+    if total_questions == 0:
+        print("No questions were played.")
+        return
+
+    percentage = score / total_questions * 100
+    print(f"Score: {score} out of {total_questions}")
+    print(f"Percentage: {percentage:.0f}%")
+    if score == total_questions:
+        print("Perfect score! Excellent work!")
+    elif percentage >= 60:
+        print("Great job! Keep practising.")
+    else:
+        print("Keep learning! Every round is another chance to improve.")
