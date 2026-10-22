@@ -103,8 +103,8 @@ def load_contacts(filename=CONTACTS_FILE):
     return contacts
 
 
-def save_contacts(contacts, filename=CONTACTS_FILE):
-    """Write JSON to a temporary file, then replace the saved contact book."""
+def save_contacts(contacts, filename=CONTACTS_FILE):  # Receive the contacts and use the default save location unless another is provided.
+    """Write JSON to a temporary file, then replace the saved contact book."""  # Describe what this function does.
     filename = Path(filename) # Convert the filename into a Path object so we can use file-related methods.
     temporary_file = filename.with_name(filename.name + ".tmp") # Choose a temporary file in the same folder, such as contacts.json.tmp.
 
