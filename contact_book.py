@@ -114,8 +114,8 @@ def save_contacts(contacts, filename=CONTACTS_FILE):
             file.write("\n") # Add a newline after the saved JSON.
 
         temporary_file.replace(filename) # Replace the main contacts file with the completed temporary file.
-        
-    finally:
+
+    finally: # Run the following cleanup whether saving succeeds or fails.
         if temporary_file.exists():
             temporary_file.unlink()
 
