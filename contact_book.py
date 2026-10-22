@@ -109,7 +109,7 @@ def save_contacts(contacts, filename=CONTACTS_FILE):
     temporary_file = filename.with_name(filename.name + ".tmp") # Choose a temporary file in the same folder, such as contacts.json.tmp.
 
     try: # Attempt the saving steps below; the finally block will run afterward even if an error occurs.
-        with open(temporary_file, "w", encoding="utf-8") as file: 
+        with open(temporary_file, "w", encoding="utf-8") as file: # Open the temporary file for writing; close it automatically when this block ends.
             json.dump(contacts, file, indent=4, ensure_ascii=False)
             file.write("\n")
         temporary_file.replace(filename)
