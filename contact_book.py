@@ -117,7 +117,7 @@ def save_contacts(contacts, filename=CONTACTS_FILE):
 
     finally: # Run the following cleanup whether saving succeeds or fails.
         if temporary_file.exists(): # Check whether the temporary file still exists.
-            temporary_file.unlink()
+            temporary_file.unlink() # Delete the remaining temporary file.
 
 
 def main():
