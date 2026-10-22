@@ -112,7 +112,9 @@ def save_contacts(contacts, filename=CONTACTS_FILE):
         with open(temporary_file, "w", encoding="utf-8") as file: # Open the temporary file for writing; close it automatically when this block ends.
             json.dump(contacts, file, indent=4, ensure_ascii=False) # Save the contacts as JSON, using four-space indentation and keeping characters such as é readable.
             file.write("\n") # Add a newline after the saved JSON.
-        temporary_file.replace(filename)
+
+        temporary_file.replace(filename) # Replace the main contacts file with the completed temporary file.
+        
     finally:
         if temporary_file.exists():
             temporary_file.unlink()
