@@ -105,7 +105,7 @@ def load_contacts(filename=CONTACTS_FILE):
 
 def save_contacts(contacts, filename=CONTACTS_FILE):
     """Write JSON to a temporary file, then replace the saved contact book."""
-    filename = Path(filename)
+    filename = Path(filename) # Convert the filename into a Path object so we can use file-related methods.
     temporary_file = filename.with_name(filename.name + ".tmp")
     try:
         with open(temporary_file, "w", encoding="utf-8") as file:
