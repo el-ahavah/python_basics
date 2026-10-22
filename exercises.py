@@ -298,3 +298,27 @@ if result is not None:
     print("First unique character:", result)
 else:
     print("No unique character found.")
+
+#---------------------------------------------------------
+
+"""seperate even and odd numbers"""
+
+def separate_numbers(numbers):
+    even_numbers = []
+    odd_numbers = []
+
+    for number in numbers:
+        if number % 2 == 0:
+            even_numbers.append(number)
+        else:
+            odd_numbers.append(number)
+
+    return even_numbers, odd_numbers
+
+
+numbers = [12, 7, 9, 4, 6, 3]
+
+even, odd = separate_numbers(numbers)
+
+print("Even numbers:", even)  # [12, 4, 6]
+print("Odd numbers:", odd)    # [7, 9, 3]
