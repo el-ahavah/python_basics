@@ -1,7 +1,7 @@
 """A beginner-friendly command-line word analyser."""
 
 
-def clean_text(text):
+"""def clean_text(text):
     """Return lowercase words, treating punctuation as word separators."""
     cleaned_text = ""
     for character in text.lower():
@@ -10,7 +10,20 @@ def clean_text(text):
         else:
             cleaned_text += " "
     return cleaned_text.split()
+"""
 
+def clean_text(text):
+    """Return lowercase words, treating punctuation as word separators."""
+    cleaned_characters = []
+
+    for character in text.lower():
+        if character.isalnum():
+            cleaned_characters.append(character)
+        else:
+            cleaned_characters.append(" ")
+
+    cleaned_text = "".join(cleaned_characters)
+    return cleaned_text.split()
 
 def count_words(words):
     """Return the number of words, including repeated words."""
