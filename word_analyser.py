@@ -26,7 +26,10 @@ def clean_text(text):
     return cleaned_text.split()
 
 def count_words(words):
-    """Return the number of words, including repeated words."""
+    """Return the total number of words, including duplicates.
+
+    An empty list returns 0.
+    """
     return len(words)
 
 
