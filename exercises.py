@@ -395,3 +395,7 @@ scores = {
 
 print(above_average(scores))  # ['Alice', 'Mary']
 print(above_average({}))      # []
+
+#-----------------------------------------------------
+
+"""replace every matching word"""
