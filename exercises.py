@@ -399,3 +399,55 @@ print(above_average({}))      # []
 #-----------------------------------------------------
 
 """replace every matching word"""
+
+def replace_word(sentence, old_word, new_word):
+    words = sentence.split()
+    updated_words = []
+
+    for word in words:
+        if word == old_word:
+            updated_words.append(new_word)
+        else:
+            updated_words.append(word)
+
+    return " ".join(updated_words)
+
+
+sentence = "I like Java and Java is useful"
+
+result = replace_word(sentence, "Java", "Python")
+
+print(result)
+# I like Python and Python is useful
+
+#------------------------------------------------------
+
+"""combine two stock dictionaries"""
+
+def combine_stock(first_shop, second_shop):
+    combined = {}
+
+    for item, quantity in first_shop.items():
+        combined[item] = quantity
+
+    for item, quantity in second_shop.items():
+        if item in combined:
+            combined[item] += quantity
+        else:
+            combined[item] = quantity
+
+    return combined
+
+
+first_shop = {
+    "books": 10,
+    "pens": 20
+}
+
+second_shop = {
+    "pens": 15,
+    "bags": 5
+}
+
+print(combine_stock(first_shop, second_shop))
+# {'books': 10, 'pens': 35, 'bags': 5}
