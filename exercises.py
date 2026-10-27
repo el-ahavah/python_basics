@@ -322,3 +322,22 @@ even, odd = separate_numbers(numbers)
 
 print("Even numbers:", even)  # [12, 4, 6]
 print("Odd numbers:", odd)    # [7, 9, 3]
+
+#--------------------------------------------------------------
+
+""" index of target number"""
+
+def find_positions(numbers, target):
+    positions = []
+
+    for index in range(len(numbers)):
+        if numbers[index] == target:
+            positions.append(index)
+
+    return positions
+
+
+numbers = [4, 7, 2, 7, 9, 7]
+
+print(find_positions(numbers, 7))   # [1, 3, 5]
+print(find_positions(numbers, 10))  # []
