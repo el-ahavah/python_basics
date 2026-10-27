@@ -360,4 +360,38 @@ def sum_digits(number):
 
 print(sum_digits(482))   # 14
 print(sum_digits(-305))  # 8
-print(sum_digits(0))     # 0
+print(sum_digits(0))     # 
+
+#----------------------------------------------------------
+
+"""names of students above average score"""
+
+def above_average(scores):
+    if not scores:
+        return []
+
+    total = 0
+
+    for score in scores.values():
+        total += score
+
+    average = total / len(scores)
+
+    selected_students = []
+
+    for name, score in scores.items():
+        if score > average:
+            selected_students.append(name)
+
+    return selected_students
+
+
+scores = {
+    "Alice": 80,
+    "Bob": 60,
+    "Mary": 90,
+    "David": 50
+}
+
+print(above_average(scores))  # ['Alice', 'Mary']
+print(above_average({}))      # []
