@@ -341,3 +341,23 @@ numbers = [4, 7, 2, 7, 9, 7]
 
 print(find_positions(numbers, 7))   # [1, 3, 5]
 print(find_positions(numbers, 10))  # []
+
+#-------------------------------------------------------
+
+"""adds the individual digits of an integer"""
+
+def sum_digits(number):
+    total = 0
+
+    # Remove the negative sign, if there is one.
+    number = abs(number)
+
+    for digit in str(number):
+        total += int(digit)
+
+    return total
+
+
+print(sum_digits(482))   # 14
+print(sum_digits(-305))  # 8
+print(sum_digits(0))     # 0
