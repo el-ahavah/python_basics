@@ -9,14 +9,20 @@ for number in numbers:
 
     seen.append(number)
     # print(seen)
-#------------------------------------------
+
+#--------------------------------------------------------------
+#--------------------------------------------------------------
+
 """reverse"""
 
 text = "python"
 reversed = text[::-1]
 
 print(reversed)
-#------------------------------------------
+
+#---------------------------------------------------------
+#---------------------------------------------------------
+
 """count number of characters"""
 
 text = "programming"
@@ -26,7 +32,10 @@ for char in text:
     count += 1
 
 print(count)
-#------------------------------------------
+
+#----------------------------------------------------------
+#----------------------------------------------------------
+
 """count a's"""
 
 text = "banana"
@@ -37,7 +46,10 @@ for char in text:
         count += 1
 
 print(count)
-#------------------------------------------
+
+#--------------------------------------------------------------
+#--------------------------------------------------------------
+
 """lookup"""
 
 students = {
@@ -54,7 +66,10 @@ if user_input in students:
     print(students[user_input])
 else:
     print("invalid student")
-#--------------------------------------------
+
+#-----------------------------------------------------------
+#-----------------------------------------------------------
+
 """ word counter """
 sentence = "python is easy and is python is powerful"
 splitter = sentence.split()
@@ -68,7 +83,10 @@ for word in splitter:
         storage[word] = 1
 
 print(storage)
-#----------------------------------------------
+
+#-------------------------------------------------------------
+#-------------------------------------------------------------
+
 """ count vowels """
 
 text = "programming"
@@ -79,7 +97,10 @@ for char in text:
     if char in vowels:
         count += 1
 print(count)
-#-----------------------------------------------
+
+#--------------------------------------------------------------
+#--------------------------------------------------------------
+
 """ most frequent character """
 text = "banana"
 store = {}
@@ -100,7 +121,10 @@ for char in store:
         most_frequent = char
 
 print(most_frequent)
-#-----------------------------------------------
+
+#---------------------------------------------------------------------
+#---------------------------------------------------------------------
+
 """ remove duplicate character """
 text = "banana"
 
@@ -111,7 +135,10 @@ for char in text:
         result += char
 
 print(result)
-#-----------------------------------------------
+
+#-----------------------------------------------------------------
+#-----------------------------------------------------------------
+
 """ count words """
 sentence = "Python is easy to learn"
 splitter = sentence.split()
@@ -120,7 +147,10 @@ for word in splitter:
     count += 1
 
 print(count)
-#-----------------------------------------------
+
+#-----------------------------------------------------------------
+#-----------------------------------------------------------------
+
 """ find the longest word """
 sentence = "Python programming is interesting"
 splitter = sentence.split()
@@ -129,7 +159,10 @@ for word in splitter:
     if len(word) > len(longest):
         longest = word
 print(longest)
+
 #------------------------------------------------------------------
+#------------------------------------------------------------------
+
 """Find the Largest and Smallest Numbers"""
 def find_min_max(numbers):
 
@@ -161,7 +194,10 @@ if result is not None:
     print("Smallest:", smallest)
 else:
     print("The list is empty.")
-#----------------------------------------------------
+
+#------------------------------------------------------------
+#------------------------------------------------------------
+
 """Count Word Frequencies"""
 def word_frequency(sentence):
 
@@ -186,7 +222,10 @@ result = word_frequency(sentence)
 
 for word, count in result.items():
     print(f"{word}: {count}")
+
 #-------------------------------------------------------------
+#-------------------------------------------------------------
+
 """Search for a Student by Name"""
 students = [
     {"name": "Alice", "age": 20, "score": 85},
@@ -220,7 +259,10 @@ if result:
 
 else:
     print("Student not found.")
+
 #---------------------------------------------------------------
+#---------------------------------------------------------------
+
 """Find Duplicate Numbers and Their Frequencies"""
 def analyze_numbers(numbers):
 
@@ -269,7 +311,10 @@ print()
 
 print("Most frequent number:", most_frequent)
 print("Frequency:", highest_count)
-#-----------------------------------------------------------
+
+#-------------------------------------------------------------
+#-------------------------------------------------------------
+
 """Find the First Non-Repeating Character"""
 def first_unique_character(text):
 
@@ -299,7 +344,8 @@ if result is not None:
 else:
     print("No unique character found.")
 
-#---------------------------------------------------------
+#---------------------------------------------------------------------
+#---------------------------------------------------------------------
 
 """seperate even and odd numbers"""
 
@@ -323,7 +369,8 @@ even, odd = separate_numbers(numbers)
 print("Even numbers:", even)  # [12, 4, 6]
 print("Odd numbers:", odd)    # [7, 9, 3]
 
-#--------------------------------------------------------------
+#---------------------------------------------------------------
+#---------------------------------------------------------------
 
 """ index of target number"""
 
@@ -342,7 +389,8 @@ numbers = [4, 7, 2, 7, 9, 7]
 print(find_positions(numbers, 7))   # [1, 3, 5]
 print(find_positions(numbers, 10))  # []
 
-#-------------------------------------------------------
+#-------------------------------------------------------------
+#-------------------------------------------------------------
 
 """adds the individual digits of an integer"""
 
@@ -362,7 +410,8 @@ print(sum_digits(482))   # 14
 print(sum_digits(-305))  # 8
 print(sum_digits(0))     # 
 
-#----------------------------------------------------------
+#-------------------------------------------------------------
+#-------------------------------------------------------------
 
 """names of students above average score"""
 
@@ -396,7 +445,8 @@ scores = {
 print(above_average(scores))  # ['Alice', 'Mary']
 print(above_average({}))      # []
 
-#-----------------------------------------------------
+#----------------------------------------------------------------
+#----------------------------------------------------------------
 
 """replace every matching word"""
 
@@ -420,7 +470,8 @@ result = replace_word(sentence, "Java", "Python")
 print(result)
 # I like Python and Python is useful
 
-#------------------------------------------------------
+#-----------------------------------------------------------------
+#-----------------------------------------------------------------
 
 """combine two stock dictionaries"""
 
@@ -451,3 +502,32 @@ second_shop = {
 
 print(combine_stock(first_shop, second_shop))
 # {'books': 10, 'pens': 35, 'bags': 5}
+
+#----------------------------------------------------------------
+#----------------------------------------------------------------
+
+def fib(n):
+    """Write Fibonacci series up to n."""
+    a, b = 0, 1
+    # while a < n:  
+    for i in range(n):
+
+        print(a, end=' ')
+        a, b = b, a+b
+    print()
+
+def fib2(n):
+    """Return Fibonacci series up to n."""
+    result = []
+    a, b = 0, 1
+    # while a <= n:
+    for i in range(n):
+        result.append(a)
+        a, b = b, a+b
+    return result
+
+fib(10)
+
+numbers = fib2(20)
+
+print(numbers)
