@@ -1,6 +1,5 @@
 """
-Age Calculator
-Calculates exact age in years, months, and days from a birth date,
+Age Calculator calculates exact age in years, months, and days from a birth date,
 along with total days lived and days until the next birthday.
 """
 
