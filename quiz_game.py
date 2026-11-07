@@ -1,4 +1,4 @@
-"""A beginner-friendly command-line quiz game called BrainQuest."""
+"""A beginner-friendly command-line quiz game called."""
 
 
 def welcome_player():
