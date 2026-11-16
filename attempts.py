@@ -108,3 +108,86 @@
 #     print(output)
 
 # main()
+
+#------------------------------------------------------------
+
+"""Reverse a List"""
+
+# def reverse_list(items):
+#     result = []
+
+#     for i in range(len(items) - 1, -1, -1):
+#         result.append(items[i])
+
+#     return result
+
+
+
+
+
+# def reverse_list(items):
+#     result = []
+#     i = len(items) - 1
+
+#     while i >= 0:
+#         result.append(items[i])
+#         i -= 1
+
+#     return result
+
+
+
+
+
+# def reverse_list(items):
+#     result = []
+
+#     left = 0
+#     right = len(items) - 1
+
+#     while right >= left:
+#         result.append(items[right])
+#         right -= 1
+
+#     return result
+
+# def main():
+#     items = [1, 2, 3, 4]
+#     result = reverse_list(items)
+#     print(result)
+
+# main()
+
+#------------------------------------------------------------
+
+"""Check if a List Contains Duplicates"""
+
+def has_duplicates(numbers):
+    store = dict()
+
+    for number in numbers:
+        if number in store:
+            return True
+
+        store[number] = True
+
+    return False
+
+
+# def has_duplicates(numbers):
+#     store = set()
+
+#     for number in numbers:
+#         if number in store:
+#             return True
+
+#         store.add(number)
+
+#     return False
+
+def main():
+    numbers = [1, 2, 3, 4, 2]
+    output = has_duplicates(numbers)
+    print(output)
+
+main()
