@@ -39,15 +39,37 @@
 
 #------------------------------------------------------------
 
-def list_sum(numbers):
-    sum = 0
-    for number in numbers:
-        sum += number
-    return sum
+# """sum of numbers"""
+# def list_sum(numbers):
+#     sum = 0
+#     for number in numbers:
+#         if numbers == []:
+#             return None
+#         sum += number
+#     return sum
     
-def main():
-    numbers = [2, 4, 6, 8]
-    sum = list_sum(numbers)
-    print(sum)
+# def main():
+#     numbers = [2, 4, 6, 8]
+#     sum = list_sum(numbers)
+#     print(sum)
 
-main()
+# main()
+
+#------------------------------------------------------------
+
+# """ count even numbers"""
+# def count_even(numbers):
+#     count = 0
+#     for number in numbers:
+
+#         if number % 2 == 0:
+#             count += 1
+
+#     return count
+
+# def main():
+#     numbers = [1, 2, 3, 4, 6]
+#     count = count_even(numbers)
+#     print(count)
+
+# main()
