@@ -91,3 +91,20 @@
 #     print(output)
 
 # main()
+
+#------------------------------------------------------------
+
+# """Find a Number in a List"""
+# def find_number(numbers, target):
+#     for i in range(len(numbers)):
+#         if numbers[i] == target:
+#             return i
+#     return -1
+
+# def main():
+#     numbers = [10, 25, 30, 45]
+#     target = 30
+#     output = find_number(numbers, target)
+#     print(output)
+
+# main()
