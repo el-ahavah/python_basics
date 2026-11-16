@@ -40,4 +40,14 @@
 #------------------------------------------------------------
 
 def list_sum(numbers):
+    sum = 0
+    for number in numbers:
+        sum += number
+    return sum
     
+def main():
+    numbers = [2, 4, 6, 8]
+    sum = list_sum(numbers)
+    print(sum)
+
+main()
